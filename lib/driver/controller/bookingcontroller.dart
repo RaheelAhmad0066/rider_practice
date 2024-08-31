@@ -46,17 +46,17 @@ class BookingController extends GetxController {
 
   void declineBooking(String bookingId) {
     databaseRef.child(bookingId).remove().then((_) {
-      Get.snackbar(
-        "Booking Declined",
-        "The booking request has been declined.",
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      // Get.snackbar(
+      //   "Booking Declined",
+      //   "The booking request has been declined.",
+      //   snackPosition: SnackPosition.BOTTOM,
+      // );
     }).catchError((error) {
-      Get.snackbar(
-        "Error",
-        "Failed to decline the booking: $error",
-        snackPosition: SnackPosition.BOTTOM,
-      );
+      // Get.snackbar(
+      //   "Error",
+      //   "Failed to decline the booking: $error",
+      //   snackPosition: SnackPosition.BOTTOM,
+      // );
     });
   }
 
@@ -131,7 +131,6 @@ class BookingController extends GetxController {
         snackPosition: SnackPosition.BOTTOM,
       );
       declineBooking(booking.bookingId);
-      Get.to(MapScreenRider());
     }).catchError((error) {
       Get.snackbar(
         "Error",

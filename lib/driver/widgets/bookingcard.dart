@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -30,7 +31,7 @@ class BookingCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Your fare",
+              "User Request",
               style: TextStyle(color: Colors.green, fontSize: 14),
             ),
             SizedBox(height: 5),
@@ -49,7 +50,13 @@ class BookingCard extends StatelessWidget {
                       booking.name ?? 'User',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    Text(booking.toLocationAddress), // Example rating
+                    SizedBox(
+                        height: 30,
+                        width: 200,
+                        child: AutoSizeText(
+                          booking.toLocationAddress,
+                          maxLines: 3,
+                        )), // Example rating
                     Text(booking.vehicle), // Example car model
                   ],
                 ),
@@ -110,9 +117,9 @@ class BookingCard extends StatelessWidget {
                 SizedBox(
                   width: 140,
                   child: ElevatedButton(
-                    onPressed: () {
+                    onPressed: () async {
                       controller.acceptBooking(booking);
-                      Get.to(MapScreenRider(
+                      await Get.to(MapScreenRider(
                         userbooking: booking,
                       ));
                     },
@@ -318,9 +325,14 @@ class _MapScreenRiderState extends State<MapScreenRider> {
                         ),
                       ],
                     ),
-                    title: Text(
-                      widget.userbooking!.toLocationAddress,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                    title: SizedBox(
+                      width: 100,
+                      height: 20,
+                      child: AutoSizeText(
+                        widget.userbooking!.toLocationAddress,
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        maxLines: 3,
+                      ),
                     ),
                     subtitle: Text(
                       'PKR${widget.userbooking!.price}',
