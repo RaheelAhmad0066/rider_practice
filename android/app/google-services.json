@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "940069389574",
+    "firebase_url": "https://rider-692bc-default-rtdb.firebaseio.com",
+    "project_id": "rider-692bc",
+    "storage_bucket": "rider-692bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:940069389574:android:2bcf25600bdc5e42a04a87",
+        "android_client_info": {
+          "package_name": "com.egoncastle.users"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGzBFq3plRXkAyvAC7UBKQ_lu5SAz9yhQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
