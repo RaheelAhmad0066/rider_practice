@@ -6,6 +6,7 @@ class UserDB {
   double? fromlatitude;
   String? fromLocationAddress;
   String? vehicale;
+  String? id;
   String? toLocationAddress;
   int? price;
 
@@ -14,6 +15,7 @@ class UserDB {
     this.toLocationlatitude,
     this.toLocationlongitude,
     this.fromlatitude,
+    this.id,
     this.vehicale,
     this.fromlongitude,
     this.fromLocationAddress,
@@ -24,6 +26,7 @@ class UserDB {
   Map<String, dynamic> toJson() {
     return {
       'name': name,
+      'id': id,
       'vehicle': vehicale,
       'tolocationlongitude': toLocationlongitude,
       'tolocationlatitude': toLocationlongitude,

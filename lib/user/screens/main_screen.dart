@@ -437,6 +437,8 @@ class _UserMainScreenState extends State<UserMainScreen> {
                                   : ElevatedButton(
                                       onPressed: () {
                                         UserDB userDetail = UserDB(
+                                          id: userprofile.userModel.value.id ??
+                                              '',
                                           vehicale:
                                               controller.selectedVehicle.value,
                                           name: userprofile
@@ -762,7 +764,7 @@ class _UserBookingCardState extends State<UserBookingCard> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     Text("4.9 (3659 rides)"), // Example rating
-                    Text(widget.booking.name), // Example car model
+                    Text(widget.booking.typecar), // Example car model
                   ],
                 ),
                 Spacer(),
@@ -776,7 +778,10 @@ class _UserBookingCardState extends State<UserBookingCard> {
               ],
             ),
             SizedBox(height: 10),
-            Text('Price: \$${widget.booking.price.toStringAsFixed(2)}'),
+            Text(
+              'PKR ${widget.booking.price.toStringAsFixed(2)}',
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold),
+            ),
             SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,

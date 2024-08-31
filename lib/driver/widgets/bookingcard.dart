@@ -49,8 +49,8 @@ class BookingCard extends StatelessWidget {
                       booking.name ?? 'User',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    Text("4.9 (3659 rides)"), // Example rating
-                    Text("Suzuki Alto"), // Example car model
+                    Text(booking.toLocationAddress), // Example rating
+                    Text(booking.vehicle), // Example car model
                   ],
                 ),
                 Spacer(),
@@ -93,7 +93,7 @@ class BookingCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 SizedBox(
-                  width: 160,
+                  width: 140,
                   child: ElevatedButton(
                     onPressed: () {
                       controller.declineBooking(
@@ -108,7 +108,7 @@ class BookingCard extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  width: 160,
+                  width: 140,
                   child: ElevatedButton(
                     onPressed: () {
                       controller.acceptBooking(booking);
@@ -319,11 +319,11 @@ class _MapScreenRiderState extends State<MapScreenRider> {
                       ],
                     ),
                     title: Text(
-                      'Canal Rd H96f+H62 (MughalPura)',
+                      widget.userbooking!.toLocationAddress,
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(
-                      'Rs${widget.userbooking!.price}',
+                      'PKR${widget.userbooking!.price}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     trailing: CircleAvatar(
