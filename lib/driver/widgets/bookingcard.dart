@@ -17,6 +17,7 @@ class BookingCard extends StatelessWidget {
 
   BookingCard({required this.booking});
   final BookingController controller = Get.put(BookingController());
+  final controll = Get.find<UserProfileGetUser>();
 
   @override
   Widget build(BuildContext context) {
@@ -119,9 +120,10 @@ class BookingCard extends StatelessWidget {
                   child: ElevatedButton(
                     onPressed: () async {
                       controller.acceptBooking(booking);
-                      await Get.to(MapScreenRider(
+                      Get.to(MapScreenRider(
                         userbooking: booking,
                       ));
+                      print(booking.price);
                     },
                     child: Text(
                       "Accept",
@@ -225,8 +227,8 @@ class BookingCard extends StatelessWidget {
 }
 
 class MapScreenRider extends StatefulWidget {
-  final Booking? userbooking;
-  const MapScreenRider({super.key, this.userbooking});
+  final Booking userbooking;
+  const MapScreenRider({super.key, required this.userbooking});
 
   @override
   State<MapScreenRider> createState() => _MapScreenRiderState();
@@ -320,7 +322,7 @@ class _MapScreenRiderState extends State<MapScreenRider> {
                           child: Icon(Iconsax.user),
                         ),
                         Text(
-                          widget.userbooking!.name,
+                          widget.userbooking.name ?? '',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ],
@@ -329,13 +331,13 @@ class _MapScreenRiderState extends State<MapScreenRider> {
                       width: 100,
                       height: 20,
                       child: AutoSizeText(
-                        widget.userbooking!.toLocationAddress,
+                        widget.userbooking.toLocationAddress ?? '',
                         style: TextStyle(fontWeight: FontWeight.bold),
                         maxLines: 3,
                       ),
                     ),
                     subtitle: Text(
-                      'PKR${widget.userbooking!.price}',
+                      'PKR${widget.userbooking.price ?? ''}',
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     trailing: CircleAvatar(

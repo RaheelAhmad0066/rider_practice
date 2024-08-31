@@ -4,8 +4,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:liferfoodrider/driver/screens/main_screend.dart';
 import 'package:liferfoodrider/main.dart';
+import 'package:liferfoodrider/user/userController/userprofilecontroller.dart';
 
 import '../../category.dart';
 import '../Assistants/assistant_methods.dart';
@@ -74,6 +76,9 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    final controller = Get.find<UserProfileGetUser>();
+    controller.fetchDriverData();
+    controller.fetchDriverData();
     startTimer(context);
   }
 
